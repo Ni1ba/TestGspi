@@ -5,7 +5,7 @@ public class Program
 {
     public static void Main(string[] args)
     {
-
+        
         //входные данные для теста
         InputData inputData = new InputData();
         List<Dictionary<string, string>> listTask1 = inputData.Task1();
@@ -20,6 +20,9 @@ public class Program
 
 
         //задания 2
+        List<Dictionary<string, string>> tempList = inputData.Task1();
+        List <Person> listTask2 = converterToPerson.ConvertToListPerson(tempList);
+
 
         //реализация метода
 

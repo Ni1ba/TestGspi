@@ -10,7 +10,7 @@ namespace TestGspi
     {
         public List<Person> FilterEmployees(List<Dictionary<string, string>> employees)
         {
-            List<Person> filteredEmployees = new();
+            List<Dictionary<string, string>> filteredEmployees = new();
 
             Person person = new();
 
@@ -23,19 +23,13 @@ namespace TestGspi
                 {
                     if (emp["Фамилия"].StartsWith('К'))
                     {
-                        person =new ();
-                        person.Salary = decimal.Parse(emp["Зарплата"]);
-                        person.SecondName = emp["Фамилия"];
-                        person.Name = emp["Имя"];
-                        person.Department = emp["Отдел"];
-                            
-                        filteredEmployees.Add(person);
-
+                        filteredEmployees.Add(emp);
                     }
                 }
             }
 
-            return filteredEmployees;
+
+            return ConvertToListPerson(filteredEmployees);
         }
 
         public List<Person> ConvertToListPerson(List<Dictionary<string, string>> list)
