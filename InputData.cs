@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TestGspi
+﻿namespace TestGspi
 {
     internal class InputData
     {
-        
-        public List<Dictionary<string, string>> Task1() {
+
+        public List<Dictionary<string, string>> Task1()
+        {
 
             //входные данные для теста
 
@@ -66,6 +61,18 @@ namespace TestGspi
             employees.Add(Map);
 
             return employees;
+        }
+
+        public  List<Person> Task2()
+        {
+
+            return null;
+        }
+
+        public List<Person> Task3()
+        {
+
+            return null;
         }
     }
 }

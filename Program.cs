@@ -11,19 +11,25 @@ public class Program
         List<Dictionary<string, string>> listTask1 = inputData.Task1();
 
 
-        //Метод задания 1
+        //задания 1
         SimpleConverterToPerson converterToPerson = new();
+        //метод реализован
         List <Person> filtredList = converterToPerson.FilterEmployees(listTask1);
         //вывод данных
         converterToPerson.PrintList(filtredList);
 
 
+        //задания 2
 
+        //реализация метода
 
+        //задания 3
+
+        //реализация метода
 
     }
 
 
-   
+
 }
 
