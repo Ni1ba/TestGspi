@@ -69,10 +69,12 @@
             return null;
         }
 
-        public List<Person> Task3()
+        public (int[] arr, int min, int max) Task3()
         {
-
-            return null;
+            int[] arr = { 1, 2, 3, 4, 5, 3 };
+            int min = 1;
+            int max = 5;
+            return (arr, min, max);  
         }
     }
 }

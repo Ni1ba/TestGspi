@@ -40,6 +40,22 @@ public class Program
 
     }
 
+    public  int FindDuplicate(int[] arr, int min, int max)
+    {
+        int sum = 0;
+        int duplicate = 0;
+        
+        for (int i = 0; i < arr.Length; i++)
+        {
+            sum += arr[i];
+        }
+        
+        int expectedSum = (max - min + 1) * (min + max) / 2;
+        
+        duplicate = expectedSum - sum;
+
+        return duplicate;
+    }
 
 
 }
