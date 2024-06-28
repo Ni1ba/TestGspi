@@ -38,6 +38,23 @@ namespace TestGspi
             return filteredEmployees;
         }
 
+        public List<Person> ConvertToListPerson(List<Dictionary<string, string>> list)
+        {
+            Person person = new();
+            List <Person> newListPerson = new List<Person>();
+            foreach (var emp in list)
+            {
+                person = new();
+                person.Salary = decimal.Parse(emp["Зарплата"]);
+                person.SecondName = emp["Фамилия"];
+                person.Name = emp["Имя"];
+                person.Department = emp["Отдел"];
+                newListPerson.Add(person);
+            }
+
+            return newListPerson;
+        }
+
         public void PrintList(List<Person> employees)
         {
             foreach (var emp in employees)
