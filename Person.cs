@@ -69,6 +69,12 @@ namespace TestGspi
             }
             return resultDict;
         }
+        public Dictionary<char, int> CommonDepartment(List<Person> list)
+        {
+
+
+            return null;
+        }
 
 
     }
