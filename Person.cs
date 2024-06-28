@@ -57,6 +57,7 @@ namespace TestGspi
                     }
                 }
             }
+
             //еще раз проходим по списку и создаем новый список из существующих чаще всего встречающихся значений
             Dictionary<char, int> resultDict = new();
             int maxValue = dict.Values.Max();
@@ -68,6 +69,12 @@ namespace TestGspi
                 }
             }
             return resultDict;
+        }
+        public Dictionary<char, int> CommonDepartment(List<Person> list)
+        {
+
+
+            return null;
         }
 
 
