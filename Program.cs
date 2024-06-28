@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using TestGspi;
 public class Program
 {
@@ -22,6 +23,13 @@ public class Program
         //задания 2
         List<Dictionary<string, string>> tempList = inputData.Task1();
         List <Person> listTask2 = converterToPerson.ConvertToListPerson(tempList);
+        Person person = new Person();
+        //средняя зп
+        Console.WriteLine(person.AvgSalary(listTask2));
+
+        //самая частая буква
+        person.CommonChar(listTask2);
+        //самый частый отдел 
 
 
         //реализация метода
