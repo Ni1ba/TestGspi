@@ -5,11 +5,11 @@ public class Program
     {
 
         //входные данные для теста
-        InputData inputData = new InputData();
+        InputData inputData = new();
         List<Dictionary<string, string>> listTask1 = inputData.Task1();
+        Program program = new();
 
-
-    //задания 1
+        //задания 1
         SimpleConverterToPerson converterToPerson = new();
         //метод реализован
         List<Person> filtredList = converterToPerson.FilterEmployees(listTask1);
@@ -18,11 +18,11 @@ public class Program
         converterToPerson.PrintList(filtredList);
 
 
-    //задания 2
+        //задания 2
         Console.WriteLine("Задание 2 ");
         List<Dictionary<string, string>> tempList = inputData.Task1();
         List<Person> listTask2 = converterToPerson.ConvertToListPerson(tempList);
-        Person person = new Person();
+        Person person = new();
         //средняя зп
         Console.WriteLine($"avg зп: {person.AvgSalary(listTask2)}");
 
@@ -47,38 +47,11 @@ public class Program
 
         //реализация метода
 
-    //задания 3
-        Console.WriteLine();
-        Console.WriteLine("Задание 3 ");
-        //входные данные
-        Program program = new Program();
-        int minValue = -1;
-        int maxValue = 3;
-        int arrSize = 0;
-        int cnt = 0;
-
-        if (minValue < 0)
-        {
-            arrSize = minValue * (-1) + maxValue;
-        }
-        else
-        {
-            arrSize = minValue + maxValue;
-        }
-
-        int[] arrTask3 = new int[arrSize + 2];
-
-        for (int i = minValue; cnt < arrTask3.Length - 1; i++)
-        {
-            arrTask3[cnt] = i;
-            cnt++;
-        }
-
-        //здесь вводим какое число будет дублем
-        arrTask3[arrTask3.Length - 1] = 2;
-
+        //задания 3
         //реализация метода
-        Console.WriteLine($"Дубликат: {program.FindDuplicate(arrTask3, minValue, maxValue)}");
+        var task3TestData = inputData.Task3();
+
+        Console.WriteLine($"Дубликат: {program.FindDuplicate(task3TestData.arr, task3TestData.min, task3TestData.max)}");
     }
 
     //метод вернет любое число которое не будет или будет находится в диапазоне минимального : максимального значения

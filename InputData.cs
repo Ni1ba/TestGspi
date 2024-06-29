@@ -71,10 +71,36 @@
 
         public (int[] arr, int min, int max) Task3()
         {
-            int[] arr = { 1, 2, 3, 4, 5, 3 };
-            int min = 1;
-            int max = 5;
-            return (arr, min, max);  
+            Console.WriteLine();
+            Console.WriteLine("Задание 3 ");
+            //входные данные
+            
+            int minValue = -1;
+            int maxValue = 3;
+            int arrSize = 0;
+            int cnt = 0;
+
+            if (minValue < 0)
+            {
+                arrSize = minValue * (-1) + maxValue;
+            }
+            else
+            {
+                arrSize = minValue + maxValue;
+            }
+
+            int[] arrTask3 = new int[arrSize + 2];
+
+            for (int i = minValue; cnt < arrTask3.Length - 1; i++)
+            {
+                arrTask3[cnt] = i;
+                cnt++;
+            }
+
+            //здесь вводим какое число будет дублем
+            arrTask3[arrTask3.Length - 1] = 2;
+
+            return (arrTask3,minValue,maxValue);    
         }
     }
 }
