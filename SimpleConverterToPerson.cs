@@ -51,7 +51,7 @@ namespace TestGspi
 
         public void PrintList(List<Person> employees)
         {
-            Console.WriteLine("Задание 1. Поиск сотрудников по критериям зп>70к, Фамилия начинается с 'К': ");
+            
             foreach (var emp in employees)
             {
                 Console.WriteLine("Имя: " + emp.Name);
@@ -60,6 +60,15 @@ namespace TestGspi
                 Console.WriteLine("Зарплата: " + emp.Salary);
                 Console.WriteLine();
             }
+        }
+        public void PrintList (Dictionary<string, int> list)
+        {
+            foreach (var emp in list)
+            {
+                Console.WriteLine(emp.Key, emp.Value); 
+            }
+
+
         }
     }
 }
