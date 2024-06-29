@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestGspi
 {
-    internal class SimpleConverterToPerson
+    internal class EmployeeConverter
     {
         public List<Person> FilterEmployees(List<Dictionary<string, string>> employees)
         {
@@ -69,6 +69,28 @@ namespace TestGspi
             }
 
 
+        }
+        public int FindDuplicate(int[] arr, int min, int max)
+        {
+            Array.Sort(arr);
+            int sum = 0;
+            int duplicate = 0;
+            int cnt = 0;
+            for (int i = arr.First(); cnt < arr.Length; i++)
+            {
+                sum += arr[cnt];
+                cnt++;
+            }
+            int expectedSum = 0;
+
+            for (int i = min; i <= max; i++)
+            {
+                expectedSum += i;
+            }
+
+            duplicate = sum - expectedSum;
+
+            return duplicate;
         }
     }
 }
