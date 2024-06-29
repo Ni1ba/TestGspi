@@ -70,12 +70,33 @@ namespace TestGspi
             }
             return resultDict;
         }
-        public Dictionary<char, int> CommonDepartment(List<Person> list)
+        public Dictionary<string, int> CommonDepartment(List<Person> list)
         {
-
-
-            return null;
+            //todo: назвать как нибудь получше
+            Dictionary<string, int> cnt = new Dictionary<string, int>();
+            foreach (Person p in list)
+            {
+                if (cnt.ContainsKey(p.Department))
+                {
+                    cnt[p.Department]++;
+                }
+                else
+                {
+                    cnt.Add(p.Department, 1);
+                }
+            }
+            Dictionary<string, int> resultDict = new();
+            int maxValue = cnt.Values.Max();
+            foreach (var c in cnt)
+            {
+                if (c.Value == maxValue)
+                {
+                    resultDict.Add(c.Key, c.Value);
+                }
+            }
+            return resultDict;
         }
+
 
 
     }

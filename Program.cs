@@ -36,7 +36,7 @@ public class Program
             Console.WriteLine($"Значение: { Convert.ToString(kvp.Key)}, Частота:  { Convert.ToString(kvp.Value)}");
         }
         //самый частый отдел 
-
+        var a= person.CommonDepartment(listTask2);
 
         //реализация метода
 
