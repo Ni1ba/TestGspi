@@ -34,7 +34,6 @@ public class Program
             Console.WriteLine($"Значение: {Convert.ToString(kvp.Key)}, Частота:  {Convert.ToString(kvp.Value)}");
         }
 
-
         //самый частый отдел 
         Console.WriteLine("");
         Console.WriteLine("Самый частый отдел ");
@@ -54,7 +53,7 @@ public class Program
         Console.WriteLine($"Дубликат: {EConverter.FindDuplicate(task3TestData.arr, task3TestData.min, task3TestData.max)}");
     }
 
-    //метод вернет любое число которое не будет или будет находится в диапазоне минимального : максимального значения
+     
    
 
 

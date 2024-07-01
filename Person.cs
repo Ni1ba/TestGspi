@@ -96,7 +96,11 @@ namespace TestGspi
             }
             return resultDict;
         }
+        public List<string> SimilarSecondNameFind()
+        {
 
+            return null;
+        }
 
 
     }
