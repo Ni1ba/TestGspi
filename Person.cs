@@ -9,7 +9,7 @@ namespace TestGspi
         public string Department { get; set; }
         public decimal Salary { get; set; }
 
-        public decimal AvgSalary(List<Person> list)
+        private decimal AvgSalary(List<Person> list)
         {
             decimal sum = 0;
             int count = 0;
@@ -30,7 +30,7 @@ namespace TestGspi
             }
         }
 
-        public Dictionary<char, int> CommonChar(List<Person> list)
+        private Dictionary<char, int> CommonChar(List<Person> list)
         {
             Dictionary<char, int> dict = new Dictionary<char, int>();
 
@@ -70,7 +70,7 @@ namespace TestGspi
             }
             return resultDict;
         }
-        public Dictionary<string, int> CommonDepartment(List<Person> list)
+        private Dictionary<string, int> CommonDepartment(List<Person> list)
         {
             //todo: назвать как нибудь получше
             Dictionary<string, int> cnt = new Dictionary<string, int>();
@@ -96,7 +96,7 @@ namespace TestGspi
             }
             return resultDict;
         }
-        public List<string> SimilarSecondNameFind()
+        private List<string> SimilarSecondNameFind(List<Person> listTask2)
         {
 
             return null;
@@ -104,10 +104,18 @@ namespace TestGspi
 
 
         //метод для задания 2
-        public TaskDto Task2()
+        public TaskDto Task2(List<Person> listTask2)
         {
+            Console.WriteLine("Задание 2 ");
 
-            return null;
+            TaskDto dto = new TaskDto();
+            //средняя зп
+            dto._avgSalary= AvgSalary(listTask2);
+            dto._popularChar =CommonChar(listTask2);
+            dto._popularDepartment= CommonDepartment(listTask2);
+            dto._similarSecondName = SimilarSecondNameFind(listTask2);
+
+            return dto;
         }
 
     }

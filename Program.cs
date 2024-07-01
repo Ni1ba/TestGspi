@@ -18,26 +18,31 @@ public class Program
         EConverter.PrintList(filtredList);
 
 
-        //задания 2
-        Console.WriteLine("Задание 2 ");
+        //заданиe 2 
+        //входные данные
+        //Console.WriteLine("Задание 2 ");
         List<Dictionary<string, string>> tempList = inputData.Task1();
         List<Person> listTask2 = EConverter.ConvertToListPerson(tempList);
         Person person = new();
-        //средняя зп
-        Console.WriteLine($"avg зп: {person.AvgSalary(listTask2)}");
+        TaskDto dtoVar = new();
 
-        //самая частая буква
-        Console.WriteLine("Частый символ в фамилии:");
-        var result = person.CommonChar(listTask2);
-        foreach (var kvp in result)
-        {
-            Console.WriteLine($"Значение: {Convert.ToString(kvp.Key)}, Частота:  {Convert.ToString(kvp.Value)}");
-        }
+        //Метод задания 2
+        dtoVar = person.Task2(listTask2);
 
-        //самый частый отдел 
-        Console.WriteLine("");
-        Console.WriteLine("Самый частый отдел ");
-        EConverter.PrintList(person.CommonDepartment(listTask2));
+        //Console.WriteLine($"avg зп: {person.AvgSalary(listTask2)}");
+
+        ////самая частая буква
+        //Console.WriteLine("Частый символ в фамилии:");
+        //var result = person.CommonChar(listTask2);
+        //foreach (var kvp in result)
+        //{
+        //    Console.WriteLine($"Значение: {Convert.ToString(kvp.Key)}, Частота:  {Convert.ToString(kvp.Value)}");
+        //}
+
+        ////самый частый отдел 
+        //Console.WriteLine("");
+        //Console.WriteLine("Самый частый отдел ");
+        //EConverter.PrintList(person.CommonDepartment(listTask2));
 
         //todo:фамилию, наиболее похожую на «Кузин»
 
