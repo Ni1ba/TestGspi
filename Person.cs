@@ -103,6 +103,13 @@ namespace TestGspi
         }
 
 
+        //метод для задания 2
+        public TaskDto Task2()
+        {
+
+            return null;
+        }
+
     }
 
 
