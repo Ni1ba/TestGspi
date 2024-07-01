@@ -9,6 +9,21 @@ namespace TestGspi
         public string Department { get; set; }
         public decimal Salary { get; set; }
 
+        //метод для задания 2
+        public TaskDto Task2(List<Person> listTask2)
+        {
+            Console.WriteLine("Задание 2 ");
+
+            TaskDto dto = new TaskDto();
+            //средняя зп
+            dto._avgSalary = AvgSalary(listTask2);
+            dto._popularChar = CommonChar(listTask2);
+            dto._popularDepartment = CommonDepartment(listTask2);
+            dto._similarSecondName = SimilarSecondNameFind(listTask2);
+
+            return dto;
+        }
+
         private decimal AvgSalary(List<Person> list)
         {
             decimal sum = 0;
@@ -96,28 +111,59 @@ namespace TestGspi
             }
             return resultDict;
         }
-        private List<string> SimilarSecondNameFind(List<Person> listTask2)
+        private Dictionary<string, int> SimilarSecondNameFind(List<Person> listTask2)
         {
+            List<string> secondNames = new();
+            foreach (Person p in listTask2)
+            {
+                secondNames.Add(p.SecondName);
+            }
+            string targetName = "Кузин";
 
-            return null;
+            return FindClosestSurname(targetName, secondNames);
         }
 
-
-        //метод для задания 2
-        public TaskDto Task2(List<Person> listTask2)
+        private Dictionary<string, int> FindClosestSurname(string target, List<string> surnames)
         {
-            Console.WriteLine("Задание 2 ");
+            int minDistance = int.MaxValue;
+            string closestSurname = null;
+            Dictionary<string, int> dict = new();
+            foreach (string surname in surnames)
+            {
+                int distance = LevenshteinDistance(target, surname);
+                if (distance < minDistance)
+                {
+                    dict.Add(surname, distance);
+                }
+            }
 
-            TaskDto dto = new TaskDto();
-            //средняя зп
-            dto._avgSalary= AvgSalary(listTask2);
-            dto._popularChar =CommonChar(listTask2);
-            dto._popularDepartment= CommonDepartment(listTask2);
-            dto._similarSecondName = SimilarSecondNameFind(listTask2);
+            Dictionary<string, int> sortedDictByValue = dict.OrderBy(x => x.Value)
+                                        .ToDictionary(x => x.Key, x => x.Value);
 
-            return dto;
+            return sortedDictByValue;
         }
 
+        private int LevenshteinDistance(string a, string b)
+        {
+            int[,] dp = new int[a.Length + 1, b.Length + 1];
+
+            for (int i = 0; i <= a.Length; i++)
+                dp[i, 0] = i;
+
+            for (int j = 0; j <= b.Length; j++)
+                dp[0, j] = j;
+
+            for (int i = 1; i <= a.Length; i++)
+            {
+                for (int j = 1; j <= b.Length; j++)
+                {
+                    int cost = (a[i - 1] == b[j - 1]) ? 0 : 1;
+                    dp[i, j] = Math.Min(Math.Min(dp[i - 1, j] + 1, dp[i, j - 1] + 1), dp[i - 1, j - 1] + cost);
+                }
+            }
+
+            return dp[a.Length, b.Length];
+        }
     }
 
 

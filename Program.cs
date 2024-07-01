@@ -28,7 +28,7 @@ public class Program
 
         //Метод задания 2
         dtoVar = person.Task2(listTask2);
-
+        
         //Console.WriteLine($"avg зп: {person.AvgSalary(listTask2)}");
 
         ////самая частая буква
